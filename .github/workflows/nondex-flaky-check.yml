@@ -14,7 +14,7 @@ jobs:
       - name: Checkout specific commit
         uses: actions/checkout@v3
         with:
-          ref: 6861ce03a2e1aabc315e41bdaae71a1912639e69
+          ref: 8f6efd88aa07b3b0f3364c1bdb06f4409563a1e0
 
 
       - name: Set up Java
@@ -37,7 +37,7 @@ jobs:
       - name: Checkout specific commit
         uses: actions/checkout@v3
         with:
-          ref: 6861ce03a2e1aabc315e41bdaae71a1912639e69
+          ref: 8f6efd88aa07b3b0f3364c1bdb06f4409563a1e0
 
       - name: Set up Java
         uses: actions/setup-java@v3
