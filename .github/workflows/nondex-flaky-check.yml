@@ -1,5 +1,4 @@
-- name: Checkout specific version
-  run: git checkout 30.0.0.Final
+name: Flaky Test Check
 
 
 on:
@@ -11,6 +10,8 @@ jobs:
   test-without-nondex:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout specific version
+        run: git checkout 30.0.0.Final
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -29,6 +30,8 @@ jobs:
   test-with-nondex:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout specific version
+        run: git checkout 30.0.0.Final
       - name: Checkout
         uses: actions/checkout@v3
 
