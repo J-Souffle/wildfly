@@ -1,6 +1,5 @@
 name: Flaky Test Check
 
-
 on:
   push:
     branches: [ main ]
@@ -12,8 +11,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Checkout specific commit
-        run: git checkout 6861ce03a2e1aabc315e41bdaae71a1912639e69
+      - name: Checkout stable version
+        run: git checkout 30.0.0.Final release
 
       - name: Set up Java
         uses: actions/setup-java@v3
@@ -32,8 +31,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Checkout specific commit
-        run: git checkout 6861ce03a2e1aabc315e41bdaae71a1912639e69
+      - name: Checkout stable version
+        run: git checkout 30.0.0.Final release
 
       - name: Set up Java
         uses: actions/setup-java@v3
