@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout specific version
-        run: git checkout 30.0.0.Final
+        run: git checkout 6861ce03a2e1aabc315e41bdaae71a1912639e69
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout specific version
-        run: git checkout 30.0.0.Final
+        run: git checkout 6861ce03a2e1aabc315e41bdaae71a1912639e69
       - name: Checkout
         uses: actions/checkout@v3
 
