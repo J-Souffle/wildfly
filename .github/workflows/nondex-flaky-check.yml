@@ -1,0 +1,43 @@
+name: Flaky Test Check
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test-without-nondex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+
+      - name: Build and run test normally
+        run: |
+          mvn clean install -DskipTests -pl testsuite/integration -am
+          mvn -pl testsuite/integration test \
+            -Dtest=org.jboss.as.test.integration.beanvalidation.AbstractValidationUnitTest#testValidationBehavior
+
+  test-with-nondex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+
+      - name: Run test with NonDex
+        run: |
+          mvn -pl testsuite/integration edu.illinois:nondex-maven-plugin:2.1.1:nondex \
+            -Dtest=org.jboss.as.test.integration.beanvalidation.AbstractValidationUnitTest#testValidationBehavior \
+            -DnondexRuns=100
