@@ -1,4 +1,6 @@
-name: Flaky Test Check
+- name: Checkout specific version
+  run: git checkout 30.0.0.Final
+
 
 on:
   push:
